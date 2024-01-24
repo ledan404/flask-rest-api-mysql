@@ -9,6 +9,15 @@ injuries_bp = Blueprint('injuries', __name__, url_prefix='/injuries')
 def get_injuries() -> Response:
     return make_response(jsonify(injuries_controller.find_all()), HTTPStatus.OK)
 
+@injuries_bp.get('/call/<int:call_id>')
+def get_injuries_by_call(call_id: int) -> Response:
+    return make_response(jsonify(injuries_controller.find_injuries(call_id)), HTTPStatus.OK)
+
+@injuries_bp.get('/rescuer/<int:rescuer_id>')
+def get_injuries_by_rescuer(rescuer_id: int) -> Response:
+    return make_response(jsonify(injuries_controller.find_rescuer(rescuer_id)), HTTPStatus.OK)
+
+
 @injuries_bp.post('')
 def create_injury() -> Response:
     content = request.get_json()

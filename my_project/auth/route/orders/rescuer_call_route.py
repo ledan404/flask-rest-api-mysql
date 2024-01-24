@@ -9,6 +9,10 @@ rescuer_calls_bp = Blueprint('rescuer_calls', __name__, url_prefix='/rescuer-cal
 def get_all_rescuer_calls() -> Response:
     return make_response(jsonify(rescuer_call_controller.find_all()), HTTPStatus.OK)
 
+@rescuer_calls_bp.get('/rescuer/<int:rescuer_id>')
+def get_rescuer_calls(rescuer_id: int) -> Response:
+    return make_response(jsonify(rescuer_call_controller.find_rescuers(rescuer_id)), HTTPStatus.OK)
+
 @rescuer_calls_bp.post('')
 def create_rescuer_call() -> Response:
     content = request.get_json()

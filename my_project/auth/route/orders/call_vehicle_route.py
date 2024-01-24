@@ -9,6 +9,10 @@ call_vehicles_bp = Blueprint('call_vehicles', __name__, url_prefix='/call_vehicl
 def get_all_call_vehicles() -> Response:
     return make_response(jsonify(call_vehicle_controller.find_all()), HTTPStatus.OK)
 
+@call_vehicles_bp.get('/call/<int:call_id>')
+def get_call_vehicles(call_id: int) -> Response:
+    return make_response(jsonify(call_vehicle_controller.find_vehicles_for_call(call_id)), HTTPStatus.OK)
+
 @call_vehicles_bp.post('')
 def create_call_vehicle() -> Response:
     content = request.get_json()

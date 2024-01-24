@@ -8,3 +8,11 @@ class RescuerCallsService(GeneralService):
     """
 
     _dao = rescuer_call_dao
+
+    def find_rescuers(self, rescuers_id: int):
+        """
+        Gets all objects from table.
+        :return: list of all objects
+        """
+        return self._dao.find_rescuers(rescuers_id)
+

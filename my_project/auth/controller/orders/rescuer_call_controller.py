@@ -7,5 +7,12 @@ class RescuerCallsController(GeneralController):
     """
     _service = rescuer_call_service
 
+    def find_rescuers(self, rescuers_id: int):
+        """
+        Gets all objects from table.
+        :return: list of all objects
+        """
+        return self._service.find_rescuers(rescuers_id)
+
     def __init__(self):
         super().__init__()

@@ -7,5 +7,19 @@ class CallsController(GeneralController):
     """
     _service = calls_service
 
+    def find_callers(self, caller_id: int):
+        """
+        Gets all objects from table.
+        :return: list of all objects
+        """
+        return self._service.find_callers(caller_id)
+
+    def find_cities(self, city_id: int):
+        """
+        Gets all objects from table.
+        :return: list of all objects
+        """
+        return self._service.find_cities(city_id)
+
     def __init__(self):
         super().__init__()

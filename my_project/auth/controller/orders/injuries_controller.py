@@ -7,3 +7,16 @@ class InjuriesController(GeneralController):
     """
     _service = injuries_service
 
+    def find_injuries(self, call_id: int):
+        """
+        Gets all objects from table.
+        :return: list of all objects
+        """
+        return self._service.find_injuries(call_id)
+    def find_rescuer(self, rescuer_id: int):
+        """
+        Gets all objects from table.
+        :return: list of all objects
+        """
+        return self._service.find_rescuer(rescuer_id)
+

@@ -9,6 +9,8 @@ rescuers_bp = Blueprint('rescuers', __name__, url_prefix='/rescuers')
 def get_all_rescuers() -> Response:
     return make_response(jsonify(rescuer_controller.find_all()), HTTPStatus.OK)
 
+
+
 @rescuers_bp.post('')
 def create_rescuer() -> Response:
     content = request.get_json()

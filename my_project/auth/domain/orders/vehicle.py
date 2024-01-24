@@ -10,7 +10,7 @@ class Vehicles(db.Model, IDto):
     """
     __tablename__ = "vehicles"
 
-    vehicle_id = db.Column(db.Integer, primary_key=True, )
+    vehicle_id = db.Column(db.Integer, primary_key=True,)
     vehicle_name = db.Column(db.String(255), nullable=False)
 
     call_vehicles = db.relationship("CallVehicles", back_populates="vehicle")
