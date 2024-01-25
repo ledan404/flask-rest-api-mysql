@@ -7,5 +7,8 @@ class CitiesController(GeneralController):
     """
     _service = cities_service
 
+    def procedure_insert_cities(self, city_name: str):
+        self._service.procedure_insert_cities(city_name)
+
     def __init__(self):
         super().__init__()

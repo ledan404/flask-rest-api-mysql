@@ -24,3 +24,4 @@ class CallsService(GeneralService):
         :return: list of all objects
         """
         return self._dao.find_cities(city_id)
+

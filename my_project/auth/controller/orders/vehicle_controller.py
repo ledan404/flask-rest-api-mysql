@@ -7,5 +7,8 @@ class VehiclesController(GeneralController):
     """
     _service = vehicles_service
 
+    def insert_data(self):
+        return self._service.insert_data()
+
     def __init__(self):
         super().__init__()

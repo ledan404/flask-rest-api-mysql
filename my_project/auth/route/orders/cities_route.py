@@ -37,3 +37,9 @@ def patch_city(city_id: int) -> Response:
 def delete_city(city_id: int) -> Response:
     cities_controller.delete(city_id)
     return make_response("City deleted", HTTPStatus.OK)
+
+@cities_bp.post('/insert/<string:city_name>')
+def procedure_insert_cities(city_name) -> Response:
+    cities_controller.procedure_insert_cities(city_name)
+    return make_response("City inserted", HTTPStatus.OK)
+

@@ -9,6 +9,10 @@ callers_bp = Blueprint('callers', __name__, url_prefix='/callers')
 def get_all_callers() -> Response:
     return make_response(jsonify(callers_controller.find_all()), HTTPStatus.OK)
 
+@callers_bp.get('/max_id')
+def get_max_caller_id() -> Response:
+    return make_response(jsonify(callers_controller.make_operation()), HTTPStatus.OK)
+
 @callers_bp.post('')
 def create_caller() -> Response:
     content = request.get_json()

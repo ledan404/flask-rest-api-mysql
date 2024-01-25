@@ -7,5 +7,8 @@ class CallersController(GeneralController):
     """
     _service = callers_service
 
+    def make_operation(self):
+        return self._service.make_operation()
+
     def __init__(self):
         super().__init__()

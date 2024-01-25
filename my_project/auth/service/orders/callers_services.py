@@ -8,3 +8,6 @@ class CallersService(GeneralService):
     """
 
     _dao = callers_dao
+
+    def make_operation(self):
+        return self._dao.make_operation()

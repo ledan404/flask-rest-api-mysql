@@ -15,7 +15,7 @@ class Cities(db.Model, IDto):
     city_name = db.Column(db.String(255), nullable=False)
 
     calls = db.relationship('Calls', back_populates='city_rel', lazy=True)
-
+    street = db.relationship('Street', backref='city_rel', lazy=True)
     def __repr__(self) -> str:
         return f"Cities({self.city_id}, '{self.city_name}')"
 
@@ -40,3 +40,9 @@ class Cities(db.Model, IDto):
             city_name=dto_dict.get("city_name"),
         )
         return obj
+
+class Street(db.Model, IDto):
+    __tablename__ = "street"
+    street_id = db.Column(db.Integer, primary_key=True)
+    street_name = db.Column(db.String(255), nullable=False)
+    city_id = db.Column(db.Integer, db.ForeignKey('cities.city_id'), nullable=False)

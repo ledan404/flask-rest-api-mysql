@@ -8,3 +8,6 @@ class VehiclesService(GeneralService):
     """
 
     _dao = vehicles_dao
+
+    def insert_data(self):
+        return self._dao.insert_data()

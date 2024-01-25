@@ -16,6 +16,11 @@ def create_vehicle() -> Response:
     vehicles_controller.create(vehicle)
     return make_response(jsonify(vehicle.put_into_dto()), HTTPStatus.CREATED)
 
+@vehicles_bp.post('/insert')
+def insert_data() -> Response:
+    vehicles_controller.insert_data()
+    return make_response("Vehicles inserted", HTTPStatus.CREATED)
+
 @vehicles_bp.get('/<int:vehicle_id>')
 def get_vehicle(vehicle_id: int) -> Response:
     return make_response(jsonify(vehicles_controller.find_by_id(vehicle_id)), HTTPStatus.OK)
